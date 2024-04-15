@@ -3,11 +3,9 @@
 This script will use the REST API to return information
 about a given employee's TODO list progress.
 """
-import requests
-import urllib.request
-import sys
-import json
 import pandas as pd
+import requests
+import sys
 
 
 def TODO_REQUESTS(ID):
