@@ -4,9 +4,7 @@ This script will use the REST API to return information
 about a given employee's TODO list progress.
 """
 import requests
-import urllib.request
 import sys
-import json
 
 
 def TODO_REQUESTS(ID):
