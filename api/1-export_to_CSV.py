@@ -22,7 +22,7 @@ typicode.com/users/{ID}"
     df = pd.DataFrame(todos)
     df['username'] = user_info['username']
     df = df[['userId', 'username', 'completed', 'title']]
-    df.to_csv(f"{ID}.csv", index=False)
+    df.to_csv(f"{ID}.csv", index=False, quoting= 1)
 
 
 if __name__ == "__main__":
