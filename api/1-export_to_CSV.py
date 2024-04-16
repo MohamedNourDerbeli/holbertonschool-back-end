@@ -3,7 +3,7 @@
 This script will use the REST API to return information
 about a given employee's TODO list progress.
 """
-import pandas as pd
+import csv
 import requests
 import sys
 
@@ -19,10 +19,13 @@ def TODO_REQUESTS(ID):
         f"https://jsonplaceholder.\
 typicode.com/users/{ID}"
     ).json()
-    df = pd.DataFrame(todos)
-    df["username"] = user_info["username"]
-    df = df[["userId", "username", "completed", "title"]]
-    df.to_csv(f"{ID}.csv", index=False, quoting=1, header=None)
+    with open(f"{ID}.csv", mode="w") as csvfile:
+        writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
+        for todo in todos:
+            writer.writerow(
+                [(ID), user_info["username"],
+                 todo["completed"], todo["title"]]
+            )
 
 
 if __name__ == "__main__":
