@@ -17,8 +17,7 @@ def TODO_REQUESTS():
 typicode.com/users"
     ).json()
 
-    data = [
-        {
+    data ={
             user["id"]: [
                 {
                     "username": user["username"],
@@ -28,11 +27,11 @@ typicode.com/users"
                 for task in todos
                 if task["userId"] == user["id"]
             ]
-        }
         for user in users
-    ]
+        }
+
     with open(f"todo_all_employees.json", "w") as jsonfile:
-        json.dump(data[0], jsonfile)
+        json.dump(data, jsonfile)
 
 
 if __name__ == "__main__":
