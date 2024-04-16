@@ -6,6 +6,7 @@ about a given employee's TODO list progress.
 import json
 import requests
 
+
 def TODO_REQUESTS():
     """
     extend your Python script to export data in the JSON format
@@ -25,6 +26,7 @@ typicode.com/users"
                     "completed": task["completed"],
                 }
                 for task in todos
+                if task["userId"] == user["id"]
             ]
         }
         for user in users
