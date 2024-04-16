@@ -20,11 +20,12 @@ def TODO_REQUESTS(ID):
 typicode.com/users/{ID}"
     ).json()
     data = {
+
         ID: [
             {
+                "username": user["username"],
                 "task": task["title"],
                 "completed": task["completed"],
-                "username": user["username"],
             }
             for task in todos
         ]
